@@ -20,8 +20,8 @@ app.route('/send').post((req, res) => {
     req.body.message += "\nFrom: " + req.body.name + " | " + req.body.from
     sgMail.setApiKey(process.env.SENDGRID_API_KEY)
     const msg = {
-        to: 'garvitgalgat@gmail.com',
-        from: 'cse190001016@iiti.ac.in', // Change to your verified sender
+        to: process.env.me,
+        from: process.env.bot, // Change to your verified sender
         subject: req.body.subject,
         text: req.body.message,
     }
